@@ -1,4 +1,4 @@
-package com.jp_funda.qiitaclient.view
+package com.jp_funda.qiitaclient
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,6 +16,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jp_funda.qiitaclient.ui.theme.QiitaClientTheme
+import com.jp_funda.qiitaclient.view.detail.DetailScreen
+import com.jp_funda.qiitaclient.view.search.SearchScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +40,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "list") {
-        composable(route = "list") {
-            // ここで検索画面のコンポーザブル関数を呼び出す。
+    NavHost(navController = navController, startDestination = "search") {
+        composable(route = "search") {
+            SearchScreen(navController = navController)
         }
 
         composable(route = "detail") {
-            // ここで詳細画面のコンポザブル関数を呼び出す。
+            DetailScreen()
         }
     }
 }
