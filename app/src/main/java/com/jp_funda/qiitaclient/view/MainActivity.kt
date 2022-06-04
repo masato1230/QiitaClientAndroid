@@ -10,6 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.jp_funda.qiitaclient.ui.theme.QiitaClientTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,22 +27,24 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val navController = rememberNavController()
+                    MainNavHost(navController = navController)
                 }
             }
         }
     }
+
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+fun MainNavHost(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = "list") {
+        composable(route = "list") {
+            // ここで検索画面のコンポーザブル関数を呼び出す。
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    QiitaClientTheme {
-        Greeting("Android")
+        composable(route = "detail") {
+            // ここで詳細画面のコンポザブル関数を呼び出す。
+        }
     }
 }
