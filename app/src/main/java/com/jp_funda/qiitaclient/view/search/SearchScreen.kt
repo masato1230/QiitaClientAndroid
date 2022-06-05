@@ -1,9 +1,8 @@
 package com.jp_funda.qiitaclient.view.search
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Button
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,9 +18,10 @@ fun SearchScreen(navController: NavController) {
             SearchView(textFieldState = textFieldState) {
                 // TODO 検索バーに入力された文字でQiitaのAPIを叩く
             }
-            Text(text = "検索画面")
-            Button(onClick = { navController.navigate("detail") }) {
-                Text(text = "詳細画面へ")
+            LazyColumn {
+                items(50) {
+                    SearchResultCell()
+                }
             }
         }
     }
