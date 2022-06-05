@@ -15,12 +15,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.jp_funda.qiitaclient.ui.theme.Purple700
+import com.jp_funda.qiitaclient.ui.theme.QiitaGreen
 
 @Composable
 fun SearchView(
@@ -34,8 +35,8 @@ fun SearchView(
         onValueChange = { value ->
             textFieldState.value = value
         },
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth(),
+        shape = RectangleShape,
         textStyle = TextStyle(color = Color.White, fontSize = 18.sp),
         leadingIcon = {
             Icon(
@@ -67,7 +68,7 @@ fun SearchView(
         singleLine = true,
         colors = TextFieldDefaults.textFieldColors(
             cursorColor = Color.White,
-            backgroundColor = Purple700,
+            backgroundColor = QiitaGreen,
             leadingIconColor = Color.White,
             trailingIconColor = Color.White,
         ),

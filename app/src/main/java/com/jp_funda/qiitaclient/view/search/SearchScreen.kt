@@ -6,12 +6,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.jp_funda.qiitaclient.ui.theme.QiitaGreen
 import com.jp_funda.qiitaclient.view.component.SearchView
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
@@ -19,7 +22,12 @@ import java.nio.charset.StandardCharsets
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SearchScreen(navController: NavController, searchViewModel: SearchViewModel = viewModel()) {
-    Scaffold {
+
+    LaunchedEffect(Unit) {
+        searchViewModel.searchArticles("kotlin")
+    }
+
+    Scaffold(backgroundColor = QiitaGreen, contentColor = Color.White) {
         Column {
             val textFieldState = remember { mutableStateOf(TextFieldValue("")) }
             SearchView(textFieldState = textFieldState) {
