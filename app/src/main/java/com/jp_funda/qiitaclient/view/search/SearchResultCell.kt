@@ -1,5 +1,6 @@
 package com.jp_funda.qiitaclient.view.search
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
@@ -14,9 +15,14 @@ import coil.compose.AsyncImage
 import com.jp_funda.qiitaclient.model.Article
 
 @Composable
-fun SearchResultCell(article: Article) {
+fun SearchResultCell(
+    article: Article,
+    onClick: () -> Unit,
+) {
     Column(
-        modifier = Modifier.padding(horizontal = 10.dp),
+        modifier = Modifier
+            .padding(horizontal = 10.dp)
+            .clickable { onClick() },
     ) {
         Spacer(modifier = Modifier.height(10.dp))
         Text(text = article.title)
