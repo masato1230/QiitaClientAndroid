@@ -6,11 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -40,13 +37,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "search") {
+    NavHost(navController = navController, startDestination = "detail") {
         composable(route = "search") {
             SearchScreen(navController = navController)
         }
 
         composable(route = "detail") {
-            DetailScreen()
+            DetailScreen("https://qiita.com/masato_ishikawa/items/7dc44d3bf28aedf8d2e2")
         }
     }
 }
