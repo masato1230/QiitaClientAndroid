@@ -8,7 +8,7 @@ data class Article(
     val user: User,
 ) {
     data class User(
-        val name: String,
+        val id: String,
         @Json(name = "profile_image_url")
         val profileImageUrl: String,
     )

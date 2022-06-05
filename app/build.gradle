@@ -75,4 +75,7 @@ dependencies {
 
     // Accompanist
     implementation "com.google.accompanist:accompanist-webview:0.24.10-beta"
+
+    // LiveData
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 }
